@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "732057464276",
+    "firebase_url": "https://everest-gidea.firebaseio.com",
+    "project_id": "everest-gidea",
+    "storage_bucket": "everest-gidea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:732057464276:android:3a96daf863b80ab6263a41",
+        "android_client_info": {
+          "package_name": "com.gideas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "732057464276-skspenvtn0vk4nskt6p3e6jk3psmr2h1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrkaN8JgJSDVOGsvk_pwRqpDTNKj5Nozk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "732057464276-skspenvtn0vk4nskt6p3e6jk3psmr2h1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

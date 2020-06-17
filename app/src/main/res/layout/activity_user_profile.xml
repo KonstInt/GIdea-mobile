@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/backgroundr"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/main_color">
+
+            <TextView
+                android:id="@+id/back_to_menu_from_profile"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:fontFamily="sans-serif-light"
+                android:onClick="BackToMenu"
+                android:text="&lt;"
+                android:textAllCaps="false"
+                android:textColor="?attr/text_color"
+                android:textSize="40dp"
+                android:layout_marginBottom="2dp"/>
+
+            <TextView
+                android:id="@+id/profile_header"
+                android:layout_width="wrap_content"
+                android:layout_height="55dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginHorizontal="20dp"
+                android:baselineAligned="false"
+                android:text="Профиль"
+                android:textAlignment="center"
+                android:textColor="?attr/text_color"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/backgroundr"
+        android:fillViewport="true"
+        android:orientation="vertical">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/set_profile_image"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="15dp"
+                android:src="@drawable/ava"
+                app:civ_border_color="?attr/spec_color"
+                app:civ_border_width="5dp" />
+
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:maxLength="33"
+                android:textColor="@drawable/btn_shape_text"
+                android:paddingStart="15dp"
+                android:gravity="center"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColorHint="?attr/spec_color"
+                android:layout_marginTop="30dp"
+                android:layout_marginHorizontal="20dp"
+                android:backgroundTint="?attr/spec_color"
+                android:textAlignment="center"
+                android:text="User"
+                />
+
+
+            <EditText
+                android:id="@+id/input_user_name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:maxLength="33"
+                android:textColor="@drawable/btn_shape_text"
+                android:paddingStart="15dp"
+                android:hint="Имя"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColorHint="?attr/spec_color"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:backgroundTint="?attr/spec_color"
+                android:inputType="textEmailAddress"
+                android:visibility="gone"/>
+
+            <EditText
+                android:id="@+id/set_profile_status"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:maxLength="33"
+                android:textColor="@drawable/btn_shape_text"
+                android:paddingStart="15dp"
+                android:hint="Статус"
+                android:gravity="center"
+                android:textColorHint="?attr/spec_color"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:backgroundTint="?attr/spec_color"
+                android:inputType="textEmailAddress"/>
+
+
+            <androidx.legacy.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/update_settings_button"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_gravity="center|bottom"
+                android:layout_marginBottom="15dp"
+                android:padding="10dp"
+                android:background="@drawable/start_test_btn_shape"
+                android:text="Сохранить"
+                android:textColor="@drawable/btn_shape_text"
+                android:layout_marginTop="70dp"/>
+
+
+
+            <TextView
+                android:id="@+id/sign_out"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Выйти из аккаунта"
+                android:textSize="15dp"
+                android:textAlignment="center"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="5dp"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/common_red"
+                android:onClick="SignOut"/>
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

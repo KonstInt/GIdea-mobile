@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">GIdeas</string>
+    <string name="title_home">Меню</string>
+    <string name="title_noticfaction">Уведомления</string>
+    <string name="title_dashboard">Идеи</string>
+    <string name="title_messages">Сообщения</string>
+</resources>

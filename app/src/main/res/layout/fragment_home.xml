@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/backgroundr"
+    >
+
+    <LinearLayout
+        android:layout_marginTop="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/set_profile_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="10dp"
+                android:src="@drawable/ava"
+                app:civ_border_color="?attr/bottom_icon"
+                app:civ_border_width="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/show_subj"
+                android:layout_marginHorizontal="10dp"
+                android:gravity="center"
+                android:text="Test"
+                android:textColor="?attr/bottom_icon"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="90dp">
+
+
+
+
+
+            <Button
+                android:id="@+id/Tutor"
+                android:background="@drawable/btn_shape"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+
+                android:drawableStart="@drawable/award"
+                android:textColor="?attr/text_color"
+
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="12dp"
+
+                android:paddingStart="14dp"
+
+                android:stateListAnimator="@null"
+                android:text="      Награды"
+                android:textAlignment="textStart"
+                android:textSize="15dp"
+                android:onClick="OpenSubject"/>
+
+
+
+            <Button
+                android:background="@drawable/btn_shape"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+
+                android:drawableStart="@drawable/profile"
+                android:textColor="?attr/text_color"
+
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="12dp"
+
+                android:paddingStart="14dp"
+
+                android:stateListAnimator="@null"
+                android:text="      Профиль"
+                android:textAlignment="textStart"
+                android:textSize="15dp"
+                android:onClick="openProfile"/>
+
+            <Button
+                android:background="@drawable/btn_shape"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+
+                android:drawableStart="@drawable/settings"
+                android:textColor="?attr/text_color"
+
+                android:paddingStart="14dp"
+
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="12dp"
+
+                android:onClick="OpenSettings"
+                android:stateListAnimator="@null"
+                android:text="      Настройки"
+                android:textAlignment="textStart"
+                android:textSize="15dp" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="?attr/backgroundr">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="0dp"
+        android:visibility="gone"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:background="?attr/main_color">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:text="Чаты (математика)"
+                android:textAlignment="textStart"
+                android:textAllCaps="true"
+                android:textColor="?attr/text_color"
+                android:textSize="20dp"
+                android:layout_marginTop="2dp"
+                android:layout_weight="1"
+                tools:ignore="RtlCompat"
+                android:id="@+id/chats_subj"/>
+
+            <Button
+                android:id="@+id/group_card_start"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/group_chat_create_ic"
+                android:layout_marginHorizontal="10dp"
+                android:onClick="show"
+                />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/chat_list" />
+
+
+
+
+</LinearLayout>

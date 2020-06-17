@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="?attr/backgroundr">
+
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="0dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="?attr/main_color">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15dp"
+            android:fontFamily="sans-serif-light"
+            android:onClick="BackToMenu"
+            android:text="&lt;"
+            android:textAllCaps="false"
+            android:textColor="?attr/text_color"
+            android:textSize="40dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30dp"
+            android:text="Настройки"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="?attr/text_color"
+            android:textSize="20dp"
+            android:layout_marginTop="2dp"/>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/backgroundr"
+        android:fillViewport="true"
+        android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="Тёмная тема"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="?attr/spec_color"
+            android:textSize="20dp" />
+
+        <Switch
+            android:id="@+id/day_night"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="10dp"
+            />
+
+    </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
