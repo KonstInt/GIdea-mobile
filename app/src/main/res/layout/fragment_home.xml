@@ -9,121 +9,272 @@
     >
 
     <LinearLayout
-        android:layout_marginTop="25dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         >
 
 
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="196dp"
+            android:orientation="vertical"
+            app:cardCornerRadius="20dp">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
+            android:layout_height="196dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_marginTop="11dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:onClick="openProfile">
 
             <de.hdodenhof.circleimageview.CircleImageView
-
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/set_profile_image"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
+                android:id="@+id/header_ava"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="25dp"
                 android:layout_marginHorizontal="10dp"
-                android:src="@drawable/ava"
-                app:civ_border_color="?attr/bottom_icon"
-                app:civ_border_width="5dp" />
+                app:civ_border_color="?attr/spec_color"
+                app:civ_border_width="2dp"
+                android:src="@drawable/ava"/>
 
-            <TextView
+                <TextView
+                    android:id="@+id/header_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginTop="33dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_toEndOf="@+id/header_ava"
+                    android:text="Екатерина Симонова"
+                    android:textColor="?attr/spec_color" />
+
+                <TextView
+                    android:id="@+id/header_ideas_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/header_username"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginTop="28dp"
+                    android:layout_toEndOf="@+id/header_ava"
+                    android:text="Внесено 66 предложений"
+                    android:textColor="?attr/spec_color"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+        <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp">
+
+            <ImageView
+                android:id="@+id/header_0"
+                android:layout_marginTop="18dp"
+                android:layout_marginLeft="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:id="@+id/show_subj"
-                android:layout_marginHorizontal="10dp"
+                android:src="@drawable/coin"/>
+
+            <TextView
+                android:id="@+id/header_1"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@+id/header_0"
+                android:text="Баллы"
+                android:textAllCaps="true"
+                android:textColor="?attr/spec_color"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/header_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:layout_marginStart="25dp"
+                android:layout_toEndOf="@+id/header_1"
+                android:src="@drawable/vertical_line" />
+
+
+            <TextView
+                android:id="@+id/header_3"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@+id/header_2"
+                android:text="Рейтинг"
+                android:textAllCaps="true"
+                android:textColor="?attr/spec_color"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/header_4"
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="40dp"
+                android:text="Активные"
+                android:textAllCaps="true"
+                android:textColor="?attr/spec_color"
+                android:textSize="15sp" />
+
+
+
+            <TextView
+                android:id="@+id/header_coins"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="38dp"
+                android:layout_toEndOf="@+id/header_0"
+                android:textStyle="bold"
+                android:text="300"
                 android:gravity="center"
-                android:text="Test"
-                android:textColor="?attr/bottom_icon"
-                android:textSize="30dp"
-                android:textStyle="bold" />
+                android:textAllCaps="true"
+                android:textColor="?attr/spec_color"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/header_xp"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="38dp"
+                android:layout_toEndOf="@+id/header_2"
+                android:textStyle="bold"
+                android:text="12"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:textColor="?attr/spec_color"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:id="@+id/header_active"
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="38dp"
+                android:layout_marginEnd="40dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:text="4"
+                android:textAllCaps="true"
+                android:textColor="?attr/spec_color"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
 
         </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="90dp">
 
 
-
-
-
-            <Button
-                android:id="@+id/Tutor"
-                android:background="@drawable/btn_shape"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/heaer_stories"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"/>
 
-                android:drawableStart="@drawable/award"
-                android:textColor="?attr/text_color"
-
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="12dp"
-
-                android:paddingStart="14dp"
-
-                android:stateListAnimator="@null"
-                android:text="      Награды"
-                android:textAlignment="textStart"
-                android:textSize="15dp"
-                android:onClick="OpenSubject"/>
-
-
-
-            <Button
-                android:background="@drawable/btn_shape"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/padding_10">
+            <TextView
+                android:layout_marginStart="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="?attr/spec_color"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:text="Предложения коллег"
+                android:textAllCaps="true"/>
 
-                android:drawableStart="@drawable/profile"
-                android:textColor="?attr/text_color"
-
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="12dp"
-
-                android:paddingStart="14dp"
-
-                android:stateListAnimator="@null"
-                android:text="      Профиль"
-                android:textAlignment="textStart"
-                android:textSize="15dp"
-                android:onClick="openProfile"/>
-
-            <Button
-                android:background="@drawable/btn_shape"
+            <androidx.legacy.widget.Space
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:layout_height="0dp" />
 
-                android:drawableStart="@drawable/settings"
-                android:textColor="?attr/text_color"
+             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/common_ec_blue_txt"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:text="Смотреть все"
+                 android:layout_marginEnd="15dp"
+                android:layout_marginTop="-2dp"
+                android:textAllCaps="false"/>
 
-                android:paddingStart="14dp"
+            </LinearLayout>
 
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="12dp"
+            <androidx.recyclerview.widget.RecyclerView
+                android:padding="@dimen/padding_10"
+                android:id="@+id/heaer_ideas"
+                android:layout_width="match_parent"
+                android:layout_height="175dp"
+                android:orientation="horizontal"/>
 
-                android:onClick="OpenSettings"
-                android:stateListAnimator="@null"
-                android:text="      Настройки"
-                android:textAlignment="textStart"
-                android:textSize="15dp" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/padding_10">
+                <TextView
+                    android:layout_marginStart="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="?attr/spec_color"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:text="Новости"
+                    android:textAllCaps="true"/>
+
+                <androidx.legacy.widget.Space
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="0dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/common_ec_blue_txt"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:text="Больше новостей"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginTop="-2dp"
+                    android:textAllCaps="false"/>
+
+            </LinearLayout>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
         </LinearLayout>
+
+
+
 
     </LinearLayout>
 

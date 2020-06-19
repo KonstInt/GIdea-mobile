@@ -31,6 +31,13 @@
         tools:layout="@layout/fragment_messages" />
 
 
+    <fragment
+        android:id="@+id/navigation_shop"
+        android:name="com.gideas.ui.shop.Shop"
+        android:label="@string/title_shop"
+        tools:layout="@layout/fragment_shop" />
+
+
 
 
 
