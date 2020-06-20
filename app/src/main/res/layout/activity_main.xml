@@ -45,6 +45,7 @@
 
         <Button
             android:id="@+id/btn"
+            android:onClick="newIdea"
             android:layout_width="80dp"
             android:layout_height="56dp"
             android:layout_gravity="center"

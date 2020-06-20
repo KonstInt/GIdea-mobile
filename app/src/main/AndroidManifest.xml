@@ -14,12 +14,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Tested"></activity>
+        <activity android:name=".idea_create.NewIdeaAdditional"></activity>
+        <activity android:name=".Tested" />
         <activity android:name=".ui.messages.FullScreenImage" />
         <activity android:name=".ui.messages.Chat" />
         <activity android:name=".ui.home.user.UserProfile" />
         <activity android:name=".login.RegisterActivity" />
         <activity android:name=".ui.home.setting.Settings" />
+        <activity android:name=".idea_create.NewIdea" />
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />

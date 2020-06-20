@@ -12,7 +12,7 @@
         android:layout_height="80dp"
         app:civ_border_width="2dp"
         app:civ_border_color="@color/ec_text_login_email"
-        android:src="@drawable/ava" />
+        android:src="@drawable/gazprom_b_logo" />
 
     <TextView
         android:id="@+id/header_stories_tag"

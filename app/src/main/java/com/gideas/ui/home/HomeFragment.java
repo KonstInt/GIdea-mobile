@@ -14,6 +14,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.gideas.R;
+import com.gideas.idea_create.IdeaSet;
+import com.gideas.idea_create.IdeafromServer;
+import com.gideas.idea_create.JsonPlaceHolderIder;
 import com.gideas.ui.home.adapters.Idea;
 import com.gideas.ui.home.adapters.IdeasAdapter;
 import com.gideas.ui.home.adapters.StoriesAdapter;
@@ -26,8 +29,14 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class HomeFragment extends Fragment {
@@ -93,11 +102,21 @@ public class HomeFragment extends Fragment {
         ArrayList<Idea> ideas = new ArrayList<Idea>();
 
         ArrayList<String> problems = new ArrayList<>();
-        problems.add("fhhhg");
+        problems.add("Механизация");
 
-        Idea id = new Idea("fdfdfdff", "ssss", "ffff", problems, 12);
+        ArrayList<String> problems2 = new ArrayList<>();
+        problems2.add("Финансы");
+
+        ArrayList<String> problems3 = new ArrayList<>();
+        problems3.add("Транспорт");
+
+        Idea id = new Idea("Нет", "Механизировать процесс поставок, чтобы исключить задержки", "ffff", problems, 22);
+        Idea id2 = new Idea("Нет", "Сократить программистов, не показывающих результат, и нанять команду \"Эверест\"", "ffff", problems2, 999);
+        Idea id3 = new Idea("Нет", "Коллеги! Необходимо ввести корпоративный автобус чтобы снизить риски заражения в общественном!", "ffff", problems3, 127);
 
         ideas.add(id);
+        ideas.add(id2);
+        ideas.add(id3);
 
         RecyclerView ideasRecycler = root.findViewById(R.id.heaer_ideas);
         LinearLayoutManager horizontalLayoutManagerIdeas
@@ -106,13 +125,38 @@ public class HomeFragment extends Fragment {
         adapter1 = new IdeasAdapter(getContext(), ideas);
         ideasRecycler.setAdapter(adapter1);
 
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://digitalcontest2020.eu-central-1.elasticbeanstalk.com/digitalcontest/api/").addConverterFactory(GsonConverterFactory.create()).build();
+        JsonPlaceHolderIder jsonPlaceHolder = retrofit.create(JsonPlaceHolderIder.class);
+        final Call<List<IdeaSet>> get_ideas = jsonPlaceHolder.getIdeas();
+
+        get_ideas.enqueue(new Callback<List<IdeaSet>>() {
+            @Override
+            public void onResponse(Call<List<IdeaSet>> call, Response<List<IdeaSet>> response) {
+                if(!response.isSuccessful())
+                    return;
+
+                ArrayList<IdeaSet> idea_sets = (ArrayList<IdeaSet>) response.body();
+
+            }
+
+            @Override
+            public void onFailure(Call<List<IdeaSet>> call, Throwable t){
+
+            }
+        });
+
         return root;
     }
 
 
     @Override
     public void onStart() {
+
         super.onStart();
+
+
+
+
     }
 
 

@@ -7,13 +7,13 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.gideas.idea_create.NewIdea;
 import com.gideas.login.Login;
 import com.gideas.sharedPref.NightSharedPref;
 import com.gideas.sharedPref.OtherInfoSharedPref;
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
     private Button groupCreateFinish;
     private Dialog dialog;
 
-
+    Button btn;
     private FirebaseUser currentUser;
     protected FirebaseAuth mAuth;
     private DatabaseReference RootRef;
@@ -93,6 +93,17 @@ public class MainActivity extends AppCompatActivity {
                 R.id.navigation_home, R.id.navigation_ideas, R.id.navigation_messages).build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupWithNavController(navView, navController);
+
+        btn = findViewById(R.id.btn);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent g = new Intent(MainActivity.this, NewIdea.class);
+                startActivity(g);
+            }
+        });
+
+
     }
 
     @Override
@@ -399,5 +410,6 @@ public class MainActivity extends AppCompatActivity {
         Intent g = new Intent(this, UserProfile.class);
         startActivity(g);
     }
+
 
 }

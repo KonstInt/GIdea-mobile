@@ -5,4 +5,36 @@
     <string name="title_dashboard">Идеи</string>
     <string name="title_messages">Сообщения</string>
     <string name="title_shop">Магазин</string>
+    <string name="next">Далее</string>
+
+
+    <string-array name="way_todo">
+        <item>Бытовые условия</item>
+        <item>Персонал</item>
+        <item>Реализация</item>
+        <item>продукции</item>
+        <item>Транспорт</item>
+        <item>Оборудование</item>
+        <item>ПО</item>
+        <item>Складирование</item>
+        <item>Улучшение качества</item>
+        <item>Охрана труда</item>
+        <item>Производство</item>
+        <item>Сырье</item>
+        <item>Энергетика</item>
+    </string-array>
+
+
+    <string-array name="predictable_results">
+        <item>Результат улучшений</item>
+        <item>Оптимизация бизнес-процессов</item>
+        <item>Повышение вовлеченности сотрудников</item>
+        <item>Повышение качества материалов</item>
+        <item>Повышение лояльности партнеров/клиентов</item>
+        <item>Сокращение норматива выполнения операций</item>
+        <item>Увеличение производительности труда</item>
+        <item>Улучшение условий труда</item>
+        <item>Унификация материалов</item>
+    </string-array>
+
 </resources>
