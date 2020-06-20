@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimary">#004EB6</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="without">#00FFFFFF</color>
@@ -59,7 +59,7 @@
     <color name="date_color">#b5b5b6</color>
 
     <!--send trouble shooting-->
-    <color name="send_trouble_back_ground">#eae9e8</color>
+    <color name="send_trouble_back_ground">#F1F0F0</color>
     <color name="send_trouble_background_header">#cccccc</color>
     <color name="send_trouble_text_color_header">#666666</color>
     <color name="send_trouble_edit_text_color_boder">#c4c3c3</color>

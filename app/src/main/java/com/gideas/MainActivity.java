@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.gideas.idea_create.NewIdea;
+import com.gideas.ui.home.idea_create.NewIdea;
 import com.gideas.login.Login;
 import com.gideas.sharedPref.NightSharedPref;
 import com.gideas.sharedPref.OtherInfoSharedPref;

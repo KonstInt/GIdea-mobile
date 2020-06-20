@@ -1,28 +1,40 @@
 package com.gideas.ui.home.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.gideas.IdeaViewAll;
 import com.gideas.R;
+import com.gideas.ui.home.idea_create.IdeaSet;
+import com.gideas.ui.home.user.UserProfile;
+
 
 import java.util.ArrayList;
 
 public class IdeasAdapter extends RecyclerView.Adapter<IdeasAdapter.ViewHolder> {
 
-    private ArrayList<Idea> IdeasList;
+    private ArrayList<IdeaSet> ideasList;
     private LayoutInflater mInflater;
     private IdeasAdapter.ItemClickListener mClickListener;
+    Context mc;
 
     // data is passed into the constructor
-    public IdeasAdapter(Context context, ArrayList<Idea> IdeasList) {
+    public IdeasAdapter(Context context, ArrayList<IdeaSet> ideasList) {
+        mc = context;
         this.mInflater = LayoutInflater.from(context);
-        this.IdeasList = IdeasList;
+        this.ideasList = ideasList;
     }
 
     // inflates the row layout from xml when needed
@@ -30,16 +42,23 @@ public class IdeasAdapter extends RecyclerView.Adapter<IdeasAdapter.ViewHolder> 
     @NonNull
     public IdeasAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.idea_item, parent, false);
+
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-
-        String hd = IdeasList.get(position).problems.get(0);
-        String body = IdeasList.get(position).mainText;
-        int likes = IdeasList.get(position).likes;
+        String hd;
+       if (ideasList.get(position).topics.size() != 0){
+                hd = ideasList.get(position).topics.get(0).topic;
+        }
+       else
+        {
+            hd = "Газпром";
+        }
+        String body = ideasList.get(position).description;
+        int likes = ideasList.get(position).votesYes;
 
 
         holder.way.setText(hd);
@@ -51,7 +70,7 @@ public class IdeasAdapter extends RecyclerView.Adapter<IdeasAdapter.ViewHolder> 
     // total number of rows
     @Override
     public int getItemCount() {
-        return IdeasList.size();
+        return ideasList.size();
     }
 
     // stores and recycles views as they are scrolled off screen
@@ -59,18 +78,38 @@ public class IdeasAdapter extends RecyclerView.Adapter<IdeasAdapter.ViewHolder> 
         TextView way;
         TextView mainBody;
         TextView likes;
+        CardView cv;
 
-        ViewHolder(View itemView) {
+        ViewHolder(final View itemView) {
             super(itemView);
             way = itemView.findViewById(R.id.idea_main_way);
             mainBody = itemView.findViewById(R.id.idea_text_body);
             likes = itemView.findViewById(R.id.idea_like);
-            itemView.setOnClickListener(this);
+
+            likes.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                   int i = getAdapterPosition();
+                }
+            });
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int i = getAdapterPosition();
+                    Uri uri;
+                    Intent g = new Intent(mc, IdeaViewAll.class);
+                    g.putExtra("Item", i);
+                    mc.startActivity(g);
+                }
+            });
+
         }
 
         @Override
         public void onClick(View view) {
             if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
+            ideasList.get(getAdapterPosition());
         }
     }
 
@@ -84,5 +123,10 @@ public class IdeasAdapter extends RecyclerView.Adapter<IdeasAdapter.ViewHolder> 
     public interface ItemClickListener {
         void onItemClick(View view, int position);
     }
+
+
+
+
+
 }
 

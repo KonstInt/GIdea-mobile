@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -53,9 +54,9 @@ public class Chat extends AppCompatActivity {
 
     private String chatGroupName, messageReceiverImage, messageSenderID;
 
-    private TextView chatName, usersOnline, my_date, their_date, u_name, back;
+    private TextView chatName, usersOnline, my_date, their_date, u_name;
     private CircleImageView chatImage;
-
+    private ImageView back;
 
     private FirebaseAuth mAuth;
     private DatabaseReference RootRef, GroupMessageKeyRef, GroupNameRef;

@@ -1,11 +1,13 @@
 package com.gideas.ui.home;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -13,10 +15,9 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.gideas.AppInfo;
 import com.gideas.R;
-import com.gideas.idea_create.IdeaSet;
-import com.gideas.idea_create.IdeafromServer;
-import com.gideas.idea_create.JsonPlaceHolderIder;
+import com.gideas.ui.home.idea_create.JsonPlaceHolderIder;
 import com.gideas.ui.home.adapters.Idea;
 import com.gideas.ui.home.adapters.IdeasAdapter;
 import com.gideas.ui.home.adapters.StoriesAdapter;
@@ -43,7 +44,7 @@ public class HomeFragment extends Fragment {
 
 
 
-    private TextView howMachIdeas;
+    private TextView howMachIdeas, goto_vertical;
     private TextView userName;
     private CircleImageView userProfileImage;
     private String currentUserID;
@@ -59,7 +60,7 @@ public class HomeFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
+        final View root = inflater.inflate(R.layout.fragment_home, container, false);
 
         mAuth = FirebaseAuth.getInstance();
         currentUserID = mAuth.getCurrentUser().getUid();
@@ -70,6 +71,18 @@ public class HomeFragment extends Fragment {
         userName = root.findViewById(R.id.header_username);
         howMachIdeas = root.findViewById(R.id.header_ideas_num);
         userProfileImage = root.findViewById(R.id.header_ava);
+
+        goto_vertical = root.findViewById(R.id.goto_vertical);
+        goto_vertical.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                Intent g = new Intent(getActivity(), VerticalScrollideasActivity.class);
+                startActivity(g);
+
+            }
+        });
 
         LoadUserData();
 
@@ -118,29 +131,30 @@ public class HomeFragment extends Fragment {
         ideas.add(id2);
         ideas.add(id3);
 
-        RecyclerView ideasRecycler = root.findViewById(R.id.heaer_ideas);
+        final RecyclerView ideasRecycler = root.findViewById(R.id.heaer_ideas);
         LinearLayoutManager horizontalLayoutManagerIdeas
                 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         ideasRecycler.setLayoutManager(horizontalLayoutManagerIdeas);
-        adapter1 = new IdeasAdapter(getContext(), ideas);
-        ideasRecycler.setAdapter(adapter1);
 
         Retrofit retrofit = new Retrofit.Builder().baseUrl("http://digitalcontest2020.eu-central-1.elasticbeanstalk.com/digitalcontest/api/").addConverterFactory(GsonConverterFactory.create()).build();
         JsonPlaceHolderIder jsonPlaceHolder = retrofit.create(JsonPlaceHolderIder.class);
-        final Call<List<IdeaSet>> get_ideas = jsonPlaceHolder.getIdeas();
+        final Call<List<com.gideas.ui.home.idea_create.IdeaSet>> get_ideas = jsonPlaceHolder.getIdeas();
 
-        get_ideas.enqueue(new Callback<List<IdeaSet>>() {
+        get_ideas.enqueue(new Callback<List<com.gideas.ui.home.idea_create.IdeaSet>>() {
             @Override
-            public void onResponse(Call<List<IdeaSet>> call, Response<List<IdeaSet>> response) {
+            public void onResponse(Call<List<com.gideas.ui.home.idea_create.IdeaSet>> call, Response<List<com.gideas.ui.home.idea_create.IdeaSet>> response) {
                 if(!response.isSuccessful())
                     return;
 
-                ArrayList<IdeaSet> idea_sets = (ArrayList<IdeaSet>) response.body();
+                AppInfo.idea_cards = (ArrayList<com.gideas.ui.home.idea_create.IdeaSet>) response.body();
+
+                adapter1 = new IdeasAdapter(getContext(), AppInfo.idea_cards);
+                ideasRecycler.setAdapter(adapter1);
 
             }
 
             @Override
-            public void onFailure(Call<List<IdeaSet>> call, Throwable t){
+            public void onFailure(Call<List<com.gideas.ui.home.idea_create.IdeaSet>> call, Throwable t){
 
             }
         });

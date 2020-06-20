@@ -21,33 +21,30 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="?attr/main_color">
+        android:background="@color/white">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:padding="5dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_gravity="center_vertical"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:src="@drawable/raw_back"
             android:id="@+id/back_to_chat_list_room"
-            android:layout_gravity="center"
-            android:layout_marginLeft="15dp"
-            android:fontFamily="sans-serif-light"
-            android:text="&lt;"
-            android:textAllCaps="false"
-            android:textColor="?attr/text_color"
-            android:textSize="40dp" />
+             />
 
 
         <TextView
             android:id="@+id/chat_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
             android:text="Чат"
-            android:textAlignment="center"
             android:textAllCaps="true"
-            android:textColor="?attr/text_color"
+            android:textColor="@color/black"
             android:textSize="20dp"
-            android:layout_marginTop="2dp"/>
+            />
 
         <androidx.legacy.widget.Space
             android:layout_width="match_parent"

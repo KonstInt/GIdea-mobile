@@ -230,6 +230,8 @@
                 android:layout_height="0dp" />
 
              <TextView
+
+                android:id="@+id/goto_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/common_ec_blue_txt"
@@ -238,7 +240,8 @@
                 android:text="Смотреть все"
                  android:layout_marginEnd="15dp"
                 android:layout_marginTop="-2dp"
-                android:textAllCaps="false"/>
+                android:textAllCaps="false"
+                 />
 
             </LinearLayout>
 
@@ -284,7 +287,7 @@
             </LinearLayout>
 
 
-            <androidx.recyclerview.widget.RecyclerView
+            <ListView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
