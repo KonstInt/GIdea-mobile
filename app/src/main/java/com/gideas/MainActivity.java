@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.gideas.ui.home.VerticalScrollNews;
 import com.gideas.ui.home.idea_create.NewIdea;
 import com.gideas.login.Login;
 import com.gideas.sharedPref.NightSharedPref;
@@ -412,4 +413,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void openNews(View view) {
+        Intent g = new Intent(this, VerticalScrollNews.class);
+        startActivity(g);
+    }
 }

@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -17,10 +16,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.gideas.AppInfo;
 import com.gideas.R;
-import com.gideas.ui.home.idea_create.JsonPlaceHolderIder;
-import com.gideas.ui.home.adapters.Idea;
 import com.gideas.ui.home.adapters.IdeasAdapter;
+import com.gideas.ui.home.adapters.NewsAdapter;
 import com.gideas.ui.home.adapters.StoriesAdapter;
+import com.gideas.ui.home.adapters.SurvsAdapter;
+import com.gideas.ui.home.idea_create.IdeaSet;
+import com.gideas.ui.home.news_create.NewsSet;
+import com.gideas.ui.home.survs.SurveySet;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -53,6 +55,8 @@ public class HomeFragment extends Fragment {
 
     StoriesAdapter adapter;
     IdeasAdapter adapter1;
+    NewsAdapter adapter3;
+    SurvsAdapter adapter4;
 
     private HomeViewModel homeViewModel;
 
@@ -111,26 +115,6 @@ public class HomeFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
 
-
-        ArrayList<Idea> ideas = new ArrayList<Idea>();
-
-        ArrayList<String> problems = new ArrayList<>();
-        problems.add("Механизация");
-
-        ArrayList<String> problems2 = new ArrayList<>();
-        problems2.add("Финансы");
-
-        ArrayList<String> problems3 = new ArrayList<>();
-        problems3.add("Транспорт");
-
-        Idea id = new Idea("Нет", "Механизировать процесс поставок, чтобы исключить задержки", "ffff", problems, 22);
-        Idea id2 = new Idea("Нет", "Сократить программистов, не показывающих результат, и нанять команду \"Эверест\"", "ffff", problems2, 999);
-        Idea id3 = new Idea("Нет", "Коллеги! Необходимо ввести корпоративный автобус чтобы снизить риски заражения в общественном!", "ffff", problems3, 127);
-
-        ideas.add(id);
-        ideas.add(id2);
-        ideas.add(id3);
-
         final RecyclerView ideasRecycler = root.findViewById(R.id.heaer_ideas);
         LinearLayoutManager horizontalLayoutManagerIdeas
                 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
@@ -159,6 +143,67 @@ public class HomeFragment extends Fragment {
             }
         });
 
+
+
+        final RecyclerView ideasRecycler3 = root.findViewById(R.id.heaer_news);
+        LinearLayoutManager verticalLayoutManagerNews
+                = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        ideasRecycler3.setLayoutManager(verticalLayoutManagerNews);
+
+
+        final Call<List<NewsSet>> get_news = jsonPlaceHolder.getNews();
+
+        get_news.enqueue(new Callback<List<NewsSet>>() {
+            @Override
+            public void onResponse(Call<List<NewsSet>> call, Response<List<NewsSet>> response) {
+                if(!response.isSuccessful())
+                    return;
+
+                AppInfo.news_cards = (ArrayList<NewsSet>) response.body();
+
+                adapter3 = new NewsAdapter(getContext(), AppInfo.news_cards);
+                ideasRecycler3.setAdapter(adapter3);
+                ideasRecycler3.setLayoutFrozen(true);
+
+            }
+
+            @Override
+            public void onFailure(Call<List<NewsSet>> call, Throwable t){
+
+            }
+        });
+
+
+
+        final RecyclerView ideasRecycler4 = root.findViewById(R.id.sv);
+        LinearLayoutManager verticalLayoutManagerPolls
+                = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        ideasRecycler4.setLayoutManager(verticalLayoutManagerPolls);
+
+
+
+        final Call<List<SurveySet>> get_polls = jsonPlaceHolder.getPoll();
+
+        get_polls.enqueue(new Callback<List<SurveySet>>() {
+            @Override
+            public void onResponse(Call<List<SurveySet>> call, Response<List<SurveySet>> response) {
+                if(!response.isSuccessful())
+                    return;
+
+                AppInfo.survey_cards = (ArrayList<SurveySet>) response.body();
+
+
+                adapter4 = new SurvsAdapter(getContext(), AppInfo.survey_cards);
+                ideasRecycler4.setAdapter(adapter4);
+                ideasRecycler4.setLayoutFrozen(true);
+            }
+
+            @Override
+            public void onFailure(Call<List<SurveySet>> call, Throwable t){
+
+            }
+        });
+
         return root;
     }
 
@@ -181,7 +226,7 @@ public class HomeFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists() && dataSnapshot.hasChild("name") && dataSnapshot.hasChild("status") && dataSnapshot.hasChild("image"))
                 {
-                    //userName.setText(dataSnapshot.child("name").getValue().toString());
+                    userName.setText(dataSnapshot.child("name").getValue().toString());
                     //inputUserName.setText(dataSnapshot.child("name").getValue().toString());
                     //howMachIdeas.setText(dataSnapshot.child("status").getValue().toString());
                     String retrieveProfileImage = dataSnapshot.child("image").getValue().toString();

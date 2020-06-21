@@ -18,11 +18,6 @@
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
 
-    <fragment
-        android:id="@+id/navigation_notisfactoin"
-        android:name="com.gideas.ui.notisfaction.NiticfactionFragment"
-        android:label="@string/title_noticfaction"
-        tools:layout="@layout/fragment_noticfaction" />
 
     <fragment
         android:id="@+id/navigation_messages"

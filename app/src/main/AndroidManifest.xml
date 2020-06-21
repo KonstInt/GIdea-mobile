@@ -14,7 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.home.VerticalScrollideasActivity"></activity>
+        <activity android:name=".ui.home.NewsFullscreen"></activity>
+        <activity android:name=".ui.home.VerticalScrollNews" />
+        <activity android:name=".ui.home.VerticalScrollideasActivity" />
         <activity android:name=".IdeaViewAll" />
         <activity android:name=".Tested" />
         <activity android:name=".ui.messages.FullScreenImage" />

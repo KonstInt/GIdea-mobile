@@ -9,12 +9,7 @@ import android.view.View;
 
 import com.gideas.AppInfo;
 import com.gideas.R;
-import com.gideas.ui.home.adapters.StoriesAdapter;
 import com.gideas.ui.home.adapters.VerticalScrollAdapter;
-import com.gideas.ui.home.idea_create.JsonPlaceHolderIder;
-
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class VerticalScrollideasActivity extends AppCompatActivity {
 
