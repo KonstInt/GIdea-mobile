@@ -11,7 +11,7 @@ import retrofit2.http.GET;
 
 public interface JsonPlaceHolderIder {
 
-    @GET("document//all_user_short")
+    @GET("document/all_notnull_user_short")
     Call<List<IdeaSet>> getIdeas();
 
     @GET("news/all_short")
