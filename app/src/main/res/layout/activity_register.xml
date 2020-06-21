@@ -7,24 +7,27 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_10"
+        android:layout_marginBottom="@dimen/padding_10"
         app:cardCornerRadius="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/main_color"
+            android:background="@color/white"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_width="30dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="3dp"
+                android:layout_gravity="center_vertical"
                 android:layout_marginLeft="15dp"
                 android:fontFamily="sans-serif-light"
                 android:onClick="BackToLogInMenu"
-                android:text="&lt;"
+                android:background="@drawable/raw_back"
                 android:textAllCaps="false"
-                android:textColor="?attr/text_color"
+                android:textColor="@color/black"
                 android:textSize="40dp" />
 
             <TextView
@@ -36,7 +39,7 @@
                 android:baselineAligned="false"
                 android:text="Регистрация"
                 android:textAlignment="center"
-                android:textColor="?attr/text_color"
+                android:textColor="@color/black"
                 android:textSize="25dp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -59,10 +62,10 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:layout_gravity="center"
-                 />
+                android:src="@drawable/gazprom_b_logo"/>
 
 
             <EditText

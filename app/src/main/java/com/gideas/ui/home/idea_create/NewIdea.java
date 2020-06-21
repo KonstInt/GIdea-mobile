@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -221,5 +222,10 @@ public class NewIdea extends AppCompatActivity {
         {
             super.onBackPressed();
         }
+    }
+
+    public void setData(View view) {
+        super.onBackPressed();
+        Toast.makeText(NewIdea.this, "Ваше предложение отправленно на рассмотрение", Toast.LENGTH_LONG).show();
     }
 }

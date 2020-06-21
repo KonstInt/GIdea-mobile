@@ -479,9 +479,10 @@
                     android:layout_width="200dp"
                     android:layout_height="60dp"
                     android:background="@drawable/ic_new_idea"
-                    android:onClick="getAnswer"
+                    android:onClick="setData"
                     android:text="Отправить"
                     android:textColor="@color/white"
+
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
